@@ -4,15 +4,16 @@ import { useLoaderData } from 'react-router-dom';
 const CourseDetails = () => {
     const details = useLoaderData()
     console.log(details)
-    const { title, instructor, thumbnail_url, total_enrollment, rating, price, overview } = details
+    const { title, instructor, thumbnail_url, total_enrollment, rating, price, overview } = details;
+    console.log(total_enrollment)
     return (
         <div className='flex gap-10 mt-10'>
-            <div className='flex flex-col w-2/4 gap-10'>
+            <div className='flex flex-col w-full gap-10'>
                 <h1 className='text-5xl'>{title}</h1>
                 <p>{details.details}</p>
 
                 <div>
-                    <h1 className='text-3xl '>Instructor</h1>
+                    <h1 className='mb-2 text-2xl'>Instructor</h1>
                     <div className='flex items-center gap-2 p-4 border rounded-md'>
 
                         <img className='rounded-full w-14' src={instructor.img} alt="" />
@@ -23,7 +24,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
                 <div>
-                    <h1 className='text-3xl '>What you will learn from this course</h1>
+                    <h1 className='mb-2 text-2xl'>What you will learn from this course</h1>
                     <div className='p-4 border rounded-md'>
                         {
                             overview.map(item => <li>{item}</li>)
@@ -31,8 +32,17 @@ const CourseDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-2/4'>
-                <img src={instructor.img} alt="" />
+            <div className='w-[45%] border rounded-md'>
+                <img className='w-full mb-5' src={instructor.img} alt="" />
+                <div className='m-5'>
+                    <p className='font-bold text-right'>${price}</p>
+                    <button className="w-full rounded-md btn btn-primary">Get premium access →</button>
+                    <div className='flex justify-between mt-2 font-bold'>
+                        <p>Total Enroll: {total_enrollment}</p>
+                        <p>Rating {rating.number}</p>
+                    </div>
+
+                </div>
 
             </div>
         </div>
