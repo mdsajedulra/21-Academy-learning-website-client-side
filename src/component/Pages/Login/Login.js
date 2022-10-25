@@ -25,30 +25,31 @@ const Login = () => {
     }
     return (
         <div>
-            <form onSubmit={handleLoginForm} className='flex  justify-center'>
-                <div className='my-20 w-2/6'>
+            <form onSubmit={handleLoginForm} className='flex justify-center'>
+                <div className='w-2/6 my-20'>
                     <h2 className='text-2xl text-white'>Login to 21 Academy</h2>
                     <p>
                         It's quick and easy.
                     </p>
-                    <div className="form-control w-full    ">
+                    <div className="w-full form-control ">
                         <label className="label">
                             <span className="label-text">Email address</span>
                         </label>
-                        <input name='email' type="text" placeholder="Type here" className="input input-bordered w-full   " />
+                        <input name='email' type="text" placeholder="Type here" className="w-full input input-bordered " />
                     </div>
-                    <div className="form-control w-full   ">
+                    <div className="w-full form-control ">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input name='password' type="password" placeholder="Password" className="input input-bordered w-full   " />
+                        <input name='password' type="password" placeholder="Password" className="w-full input input-bordered " />
                     </div>
                     <br />
-                    <button type='submit' className="btn btn-active btn-primary w-full">login</button>
-                    <button onClick={handleGoogleButton} className="btn mt-5 bg-white text-black rounded-full  w-full hover:bg-slate-200"><img className='w-[25px] m-2' src={google} alt="" /> Sign in with Google</button>
-                    <button className="btn mt-1 bg-white text-black rounded-full  w-full hover:bg-slate-200"><img className='w-[25px] m-2' src={github} alt="" /> Sign in with Github</button>
+                    <button type='submit' className="w-full btn btn-active btn-primary">login</button>
+                    <button onClick={handleGoogleButton} className="w-full mt-5 text-black bg-white rounded-full btn hover:bg-slate-200"><img className='w-[25px] m-2' src={google} alt="" /> Sign in with Google</button>
+                    <button className="w-full mt-1 text-black bg-white rounded-full btn hover:bg-slate-200"><img className='w-[25px] m-2' src={github} alt="" /> Sign in with Github</button>
 
                     <p className='m-3'>New to 21 Academy? <Link className='text-blue-600' to='/register'>Create an account.</Link></p>
+
                 </div>
             </form>
         </div>

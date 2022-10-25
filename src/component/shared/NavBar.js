@@ -44,11 +44,20 @@ const NavBar = () => {
 
                 {
                     user ? <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user?.displayName}>
+                            <div className="w-10 rounded-full" >
 
                                 {
-                                    user?.photoURL ? <img src={user?.photoURL} alt='user pictur' /> : <span className='flex items-center justify-center'> <FaUserGraduate /></span>
+                                    user?.photoURL ?
+                                        <div>
+                                            <div className="tooltip tooltip-bottom" data-tip='hi my name is sajedul'>
+
+                                                <img src={user?.photoURL} alt='user pictur' />
+                                            </div>
+
+                                        </div>
+                                        :
+                                        <span className='flex items-center justify-center'> <FaUserGraduate /></span>
                                 }
                             </div>
                         </label>
@@ -66,7 +75,7 @@ const NavBar = () => {
                         <>
                             <div className="flex-none">
                                 <ul className="gap-3 p-0 menu menu-horizontal">
-                                    <li className='border border-white rounded-full '>
+                                    <li className='border hover:bg-[#6419E6] border-white rounded-full '>
                                         <Link to='/login'>log in</Link>
                                     </li>
                                     <li className='bg-[#6419E6] rounded-full'>
