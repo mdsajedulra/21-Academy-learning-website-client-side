@@ -1,7 +1,6 @@
 import React from 'react';
 import demoPicture from '../../../assets/21academy.png'
 const Course = ({ course }) => {
-    console.log(course)
     const { title, instructor, price } = course;
     return (
         <div>

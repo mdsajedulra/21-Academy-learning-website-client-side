@@ -6,6 +6,16 @@ export const AuthContext = createContext();
 
 
 const AuthProvider = ({ children }) => {
+    // data load from api
+    const [categories, setCategories] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/categories')
+            .then(res => res.json())
+            .then(data => setCategories(data))
+    }, [])
+
+
+
     const auth = getAuth(app)
 
     // sign in with email password
@@ -46,7 +56,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         createUserUsingGoogle,
         createUserUsingGithub,
-        logOut
+        logOut,
+        categories // api data
     };
     return (
         <AuthContext.Provider value={authInfo}>
