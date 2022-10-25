@@ -19,12 +19,6 @@ const NavBar = () => {
                 </Link>
             </div>
             <div className="flex-none gap-2">
-                <div className="form-control">
-                    <input type="text" placeholder="Search" className="input input-bordered" />
-                </div>
-
-
-
                 <div className="flex-none">
                     <ul className="p-0 menu menu-horizontal">
                         <li>
@@ -39,39 +33,47 @@ const NavBar = () => {
                         <li>
                             <Link to='/'>Blog</Link>
                         </li>
+                        <label className="cursor-pointer label">
+
+                            <input type="checkbox" className="toggle" />
+                        </label>
                     </ul>
                 </div>
 
                 {
-                    user ? <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user?.displayName}>
-                            <div className="w-10 rounded-full" >
+                    user ?
+                        <div className="dropdown dropdown-end">
 
-                                {
-                                    user?.photoURL ?
-                                        <div>
-                                            <div className="tooltip tooltip-bottom" data-tip='hi my name is sajedul'>
 
-                                                <img src={user?.photoURL} alt='user pictur' />
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                <div className="w-10 rounded-full" >
+
+                                    {
+                                        user?.photoURL ?
+                                            <div>
+                                                <div className="tooltip tooltip-bottom" data-tip='hi my name is sajedul'>
+
+                                                    <img src={user?.photoURL} alt='user pictur' />
+                                                </div>
+
                                             </div>
+                                            :
+                                            <span className='flex items-center justify-center'> <FaUserGraduate /></span>
+                                    }
+                                </div>
+                            </label>
 
-                                        </div>
-                                        :
-                                        <span className='flex items-center justify-center'> <FaUserGraduate /></span>
-                                }
-                            </div>
-                        </label>
-
-                        <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                            <li>
-                                <Link className="justify-between">
-                                    Profile
-                                </Link>
-                            </li>
-                            <li><a>Settings</a></li>
-                            <li><button onClick={handleLogOut}>Logout</button></li>
-                        </ul>
-                    </div> :
+                            <ul tabIndex={0} className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                <li>
+                                    <Link className="justify-between">
+                                        Profile
+                                    </Link>
+                                </li>
+                                <li><a>Settings</a></li>
+                                <li><button onClick={handleLogOut}>Logout</button></li>
+                            </ul>
+                        </div>
+                        :
                         <>
                             <div className="flex-none">
                                 <ul className="gap-3 p-0 menu menu-horizontal">
@@ -85,11 +87,10 @@ const NavBar = () => {
                                 </ul>
                             </div>
                         </>
-
                 }
 
             </div>
-        </div>
+        </div >
     );
 };
 
