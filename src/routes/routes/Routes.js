@@ -31,22 +31,22 @@ export const router = createBrowserRouter([
             {
                 path: 'courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://21-academy-server.vercel.app/courses')
             },
             {
                 path: 'courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/categories')
+                loader: () => fetch('https://21-academy-server.vercel.app/categories')
             },
             {
                 path: 'courses/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://21-academy-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: 'checkout/:id',
                 element: <PrivateRouter><CheckOut></CheckOut></PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
+                loader: ({ params }) => fetch(`https://21-academy-server.vercel.app/checkout/${params.id}`)
             },
             {
                 path: 'blog',
