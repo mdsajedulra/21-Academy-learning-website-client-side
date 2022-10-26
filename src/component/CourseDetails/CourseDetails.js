@@ -7,7 +7,7 @@ const CourseDetails = () => {
     const { title, instructor, thumbnail_url, category_id, total_enrollment, rating, price, overview } = details;
 
     return (
-        <div className='flex gap-10 mt-10'>
+        <div className='flex flex-col-reverse gap-10 mt-10 lg:flex-row md:flex-row'>
             <div className='flex flex-col w-full gap-10'>
                 <h1 className='text-5xl'>{title}</h1>
                 <p>{details.details}</p>
@@ -32,7 +32,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-[45%] border rounded-md'>
+            <div className='lg:w-[45%] w-full sm:w-full md:w-full border rounded-md'>
                 <img className='w-full mb-5 rounded-md' src={thumbnail_url} alt="" />
                 <div className='m-5'>
                     <p className='font-bold text-right'>${price}</p>

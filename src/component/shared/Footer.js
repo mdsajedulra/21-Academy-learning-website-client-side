@@ -5,7 +5,7 @@ import logo from '../../assets/21academy.png'
 const Footer = () => {
     return (
         <footer className="p-10 mt-14 footer bg-neutral text-neutral-content">
-            <div className="items-center grid-flow-col">
+            <div className="items-center justify-center grid-flow-col align-middle">
                 <img className='w-[100px]' src={logo} alt="" />
                 <p>Copyright © 2022 - All right reserved</p>
             </div>
