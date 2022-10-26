@@ -39,7 +39,7 @@ const Login = () => {
             })
             .catch(error => console.log(error))
     }
-    // google signin popup function
+    // github signin popup function
     const handleGithubButton = () => {
         createUserUsingGithub()
             .then(result => {

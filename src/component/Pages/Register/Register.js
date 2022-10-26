@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import google from '../../../assets/google.png'
+import github from '../../../assets/github.png'
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, createUserUsingGoogle, createUserUsingGithub } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
 
     const handleRegisterForm = event => {
         event.preventDefault();
@@ -18,6 +23,30 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
+
+            })
+            .catch(error => console.log(error))
+    }
+
+    // google signin popup function
+    const handleGoogleButton = () => {
+        createUserUsingGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true });
+
+            })
+            .catch(error => console.log(error))
+    }
+    // github signin popup function
+    const handleGithubButton = () => {
+        createUserUsingGithub()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
     }
@@ -57,6 +86,9 @@ const Register = () => {
 
                     <br />
                     <button type='submit' className="w-full btn btn-active btn-primary">Register</button>
+                    <button onClick={handleGoogleButton} className="w-full mt-5 text-black bg-white rounded-full btn hover:bg-slate-200"><img className='w-[25px] m-2' src={google} alt="" /> Sign in with Google</button>
+                    <button onClick={handleGithubButton} className="w-full mt-1 text-black bg-white rounded-full btn hover:bg-slate-200"><img className='w-[25px] m-2' src={github} alt="" /> Sign in with Github</button>
+
                     <p className='m-3'>Already have an account? <Link className='text-blue-600' to='/login'>Login in →</Link> </p>
                 </div>
             </form>
