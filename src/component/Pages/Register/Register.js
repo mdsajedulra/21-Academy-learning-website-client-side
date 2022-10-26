@@ -6,7 +6,7 @@ import github from '../../../assets/github.png'
 
 const Register = () => {
 
-    const { createUser, createUserUsingGoogle, createUserUsingGithub } = useContext(AuthContext);
+    const { createUser, createUserUsingGoogle, createUserUsingGithub, updateNamePhotoURL } = useContext(AuthContext);
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
@@ -18,13 +18,20 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photoURL, email, password);
+        // console.log(name, photoURL, email, password);
+        const userDetails = { name, photoURL };
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, { replace: true });
-
+                updateNamePhotoURL(userDetails)
+                    .then(result => {
+                        const user = result.user;
+                        console.log(user)
+                    })
+                    .catch(error => console.log(error))
             })
             .catch(error => console.log(error))
     }
@@ -55,8 +62,8 @@ const Register = () => {
         <div>
             <form onSubmit={handleRegisterForm} className='flex justify-center'>
                 <div className='w-2/6 my-20'>
-                    <h2 className='text-2xl text-white'>Sign Up</h2>
-                    <p>
+                    <h2 className='text-2xl font-bold text-center'>Sign Up</h2>
+                    <p className='mb-5 text-center'>
                         It's quick and easy.
                     </p>
                     <div className="w-full form-control ">

@@ -77,10 +77,10 @@ const NavBar = () => {
                         <>
                             <div className="flex-none">
                                 <ul className="gap-3 p-0 menu menu-horizontal">
-                                    <li className='border hover:bg-[#6419E6] border-white rounded-full '>
+                                    <li className='border hover:bg-[#6419E6] hover:text-white border-white rounded-full '>
                                         <Link to='/login'>log in</Link>
                                     </li>
-                                    <li className='bg-[#6419E6] rounded-full'>
+                                    <li className='bg-[#6419E6] rounded-full text-white'>
                                         <Link to='/Register'>Register</Link>
                                     </li>
 

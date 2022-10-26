@@ -53,8 +53,8 @@ const Login = () => {
         <div>
             <form onSubmit={handleLoginForm} className='flex justify-center'>
                 <div className='w-2/6 my-20'>
-                    <h2 className='text-2xl text-white'>Login to 21 Academy</h2>
-                    <p>
+                    <h2 className='text-2xl font-bold text-center'>Login to 21 Academy</h2>
+                    <p className='mb-5 text-center'>
                         It's quick and easy.
                     </p>
                     <div className="w-full form-control ">
