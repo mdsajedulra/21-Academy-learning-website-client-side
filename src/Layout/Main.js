@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div className='w-[90%] mx-auto'>
+            <div>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>

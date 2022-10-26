@@ -3,7 +3,10 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            this is blog
+            <h1>FAQ</h1>
+            <div>
+                <h1>what is cors?</h1>
+            </div>
         </div>
     );
 };

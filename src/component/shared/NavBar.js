@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/21academy.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import { FaUserGraduate } from "react-icons/fa";
+import { FaBars, FaUserGraduate } from "react-icons/fa";
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -19,7 +19,7 @@ const NavBar = () => {
                 </Link>
             </div>
             <div className="flex-none gap-2">
-                <div className="flex-none">
+                <div className="flex-none hidden sm:hidden md:hidden lg:block ">
                     <ul className="p-0 menu menu-horizontal">
                         <li>
                             <Link to='/'>Home</Link>
@@ -31,12 +31,37 @@ const NavBar = () => {
                             <Link to='/'>FAQ</Link>
                         </li>
                         <li>
-                            <Link to='/'>Blog</Link>
+                            <Link to='/blog'>Blog</Link>
                         </li>
                         <label className="cursor-pointer label">
 
                             <input type="checkbox" className="toggle" />
                         </label>
+                    </ul>
+                </div>
+                <div className="block dropdown dropdown-end sm:block md:block lg:hidden">
+                    <label tabIndex={0} className="btn btn-ghost rounded-btn"><FaBars /></label>
+                    <ul tabIndex={0} className="p-2 mt-4 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                        <div className="flex-none">
+                            <ul className="p-0 menu menu-vertical">
+                                <li>
+                                    <Link to='/'>Home</Link>
+                                </li>
+                                <li tabIndex={0}>
+                                    <Link to='/courses'>Courses</Link>
+                                </li>
+                                <li>
+                                    <Link to='/'>FAQ</Link>
+                                </li>
+                                <li>
+                                    <Link to='/blog'>Blog</Link>
+                                </li>
+                                <label className="cursor-pointer label">
+
+                                    <input type="checkbox" className="toggle" />
+                                </label>
+                            </ul>
+                        </div>
                     </ul>
                 </div>
 
