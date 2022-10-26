@@ -6,6 +6,7 @@ import Blog from "../../component/Pages/Blog/Blog";
 import CheckOut from "../../component/Pages/Checkout/CheckOut";
 import Courses from "../../component/Pages/Courses/Courses";
 import Login from "../../component/Pages/Login/Login";
+import Practice from "../../component/Pages/Practice";
 import Register from "../../component/Pages/Register/Register";
 import Main from "../../Layout/Main";
 import PrivateRouter from "../PrivateRoutes/PrivateRoute";
@@ -51,7 +52,10 @@ export const router = createBrowserRouter([
             {
                 path: 'blog',
                 element: <Blog></Blog>
-
+            },
+            {
+                path: 'practice',
+                element: <Practice></Practice>
             }
         ]
     }
