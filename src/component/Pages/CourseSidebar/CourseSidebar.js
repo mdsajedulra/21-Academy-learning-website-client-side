@@ -5,8 +5,9 @@ const CourseSidebar = ({ item }) => {
     const { id, name } = item;
     return (
         <div>
+
             <ul className="w-full m-2 menu bg-base-100 rounded-box">
-                <li className="hover:border-l-2"><Link to={`/courses/${id}`}>{name}</Link></li>
+                <li className="border-b hover:border-l-2"><Link to={`/courses/${id}`}>{name}</Link></li>
             </ul>
         </div>
     );

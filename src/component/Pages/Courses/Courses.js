@@ -9,10 +9,11 @@ const Courses = () => {
     const { categories } = useContext(AuthContext);
     return (
         <div>
-            <h1 className='my-16 text-4xl text-center'>Our Courses</h1>
+            <h1 className='my-16 text-4xl font-bold text-center'>Our Courses</h1>
 
             <div className='flex gap-3'>
                 <div className='w-[20%]'>
+                    <h1 className='text-2xl font-medium'>All course Name</h1>
                     {
                         categories.map(item => <CourseSidebar key={item.id} item={item}></CourseSidebar>)
                     }

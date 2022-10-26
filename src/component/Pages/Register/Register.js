@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import google from '../../../assets/google.png'
 import github from '../../../assets/github.png'
+import { FaExclamationTriangle } from 'react-icons/fa';
 
 const Register = () => {
-
+    // error state
+    const [error, setError] = useState('');
+    const sliceError = error.slice(9);
+    // context distructure
     const { createUser, createUserUsingGoogle, createUserUsingGithub, updateNamePhotoURL } = useContext(AuthContext);
     const navigate = useNavigate()
     const location = useLocation()
@@ -31,9 +35,15 @@ const Register = () => {
                         const user = result.user;
                         console.log(user)
                     })
-                    .catch(error => console.log(error))
+                    .catch(error => {
+                        const errorMessage = error.message;
+                        setError(errorMessage)
+                    })
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            })
     }
 
     // google signin popup function
@@ -45,7 +55,10 @@ const Register = () => {
                 navigate(from, { replace: true });
 
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            })
     }
     // github signin popup function
     const handleGithubButton = () => {
@@ -55,7 +68,10 @@ const Register = () => {
                 console.log(user)
                 navigate(from, { replace: true });
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            })
     }
 
     return (
@@ -66,6 +82,19 @@ const Register = () => {
                     <p className='mb-5 text-center'>
                         It's quick and easy.
                     </p>
+
+                    {
+                        error ? <figure className='flex items-center justify-center gap-3 p-3 mt-5 text-red-700 bg-red-100 border border-red-700 rounded-md'>
+
+                            <FaExclamationTriangle />
+
+                            <span>
+                                {sliceError}
+                            </span>
+                        </figure> : ''
+                    }
+
+
                     <div className="w-full form-control ">
                         <label className="label">
                             <span className="label-text">Full Name</span>

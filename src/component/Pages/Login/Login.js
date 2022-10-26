@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import google from '../../../assets/google.png'
 import github from '../../../assets/github.png'
+import { FaExclamationTriangle } from 'react-icons/fa';
 
 const Login = () => {
+    // user error state
+    const [error, setError] = useState('');
+    const sliceError = error.slice(9);
 
+
+    // useContext distructure
     const { createUserUsingGoogle, createUserUsingGithub, logIn } = useContext(AuthContext);
     // private route redirect
     const navigate = useNavigate()
@@ -25,7 +31,11 @@ const Login = () => {
                 console.log(user)
                 navigate(from, { replace: true });
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+
+            })
     }
 
     // google signin popup function
@@ -37,7 +47,11 @@ const Login = () => {
                 navigate(from, { replace: true });
 
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+
+            })
     }
     // github signin popup function
     const handleGithubButton = () => {
@@ -47,16 +61,30 @@ const Login = () => {
                 console.log(user)
                 navigate(from, { replace: true });
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            })
     }
     return (
         <div>
-            <form onSubmit={handleLoginForm} className='flex justify-center'>
-                <div className='w-2/6 my-20'>
+            <form onSubmit={handleLoginForm} className='flex justify-center '>
+                <div className='w-2/6 p-10 my-10 border rounded-md'>
                     <h2 className='text-2xl font-bold text-center'>Login to 21 Academy</h2>
                     <p className='mb-5 text-center'>
                         It's quick and easy.
                     </p>
+                    {
+                        error ? <figure className='flex items-center justify-center gap-3 p-3 mt-5 text-red-700 bg-red-100 border border-red-700 rounded-md'>
+
+                            <FaExclamationTriangle />
+
+                            <span>
+                                {sliceError}
+                            </span>
+                        </figure> : ''
+                    }
+
                     <div className="w-full form-control ">
                         <label className="label">
                             <span className="label-text">Email address</span>
@@ -71,6 +99,7 @@ const Login = () => {
                     </div>
                     <br />
                     <button type='submit' className="w-full btn btn-active btn-primary">login</button>
+
                     <button onClick={handleGoogleButton} className="w-full mt-5 text-black bg-white rounded-full btn hover:bg-slate-200"><img className='w-[25px] m-2' src={google} alt="" /> Sign in with Google</button>
                     <button onClick={handleGithubButton} className="w-full mt-1 text-black bg-white rounded-full btn hover:bg-slate-200"><img className='w-[25px] m-2' src={github} alt="" /> Sign in with Github</button>
 
