@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import CourseDetails from "../../component/CourseDetails/CourseDetails";
 import ErrorElement from "../../component/ErrorElement";
+import Home from "../../component/Home";
 import CheckOut from "../../component/Pages/Checkout/CheckOut";
 import Courses from "../../component/Pages/Courses/Courses";
 import Login from "../../component/Pages/Login/Login";
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
         element: <Main></Main>,
         errorElement: <ErrorElement></ErrorElement>,
         children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
             {
                 path: 'login',
                 element: <Login></Login>
