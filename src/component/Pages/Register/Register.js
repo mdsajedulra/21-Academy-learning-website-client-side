@@ -24,39 +24,39 @@ const Register = () => {
 
     return (
         <div>
-            <form onSubmit={handleRegisterForm} className='flex  justify-center'>
-                <div className='my-20 w-2/6'>
+            <form onSubmit={handleRegisterForm} className='flex justify-center'>
+                <div className='w-2/6 my-20'>
                     <h2 className='text-2xl text-white'>Sign Up</h2>
                     <p>
                         It's quick and easy.
                     </p>
-                    <div className="form-control w-full ">
+                    <div className="w-full form-control ">
                         <label className="label">
                             <span className="label-text">Full Name</span>
                         </label>
-                        <input name='name' type="text" placeholder="Type your full name" className="input input-bordered w-full" />
+                        <input name='name' type="text" placeholder="Type your full name" className="w-full input input-bordered" />
                     </div>
-                    <div className="form-control w-full">
+                    <div className="w-full form-control">
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input name='photoURL' type="text" placeholder="Enter your valid photo URL" className="input input-bordered w-full   " />
+                        <input name='photoURL' type="text" placeholder="Enter your valid photo URL" className="w-full input input-bordered " />
                     </div>
-                    <div className="form-control w-full ">
+                    <div className="w-full form-control ">
                         <label className="label">
                             <span className="label-text">Email address</span>
                         </label>
-                        <input name='email' type="email" placeholder="Type your email" className="input input-bordered w-full   " />
+                        <input name='email' type="email" placeholder="Type your email" className="w-full input input-bordered " />
                     </div>
-                    <div className="form-control w-full   ">
+                    <div className="w-full form-control ">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input name='password' type="password" placeholder="Password" className="input input-bordered w-full   " />
+                        <input name='password' type="password" placeholder="Password" className="w-full input input-bordered " />
                     </div>
 
                     <br />
-                    <button type='submit' className="btn btn-active btn-primary w-full">login</button>
+                    <button type='submit' className="w-full btn btn-active btn-primary">Register</button>
                     <p className='m-3'>Already have an account? <Link className='text-blue-600' to='/login'>Login in →</Link> </p>
                 </div>
             </form>

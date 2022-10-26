@@ -11,13 +11,13 @@ const Courses = () => {
         <div>
             <h1 className='my-16 text-4xl text-center'>Our Courses</h1>
 
-            <div className='flex'>
-                <div className='w-[20%] border'>
+            <div className='flex gap-3'>
+                <div className='w-[20%]'>
                     {
                         categories.map(item => <CourseSidebar key={item.id} item={item}></CourseSidebar>)
                     }
                 </div>
-                <div className='w-[80%] border grid lg:grid-cols-3	sm:gird-cols-2 md:grid-cols-2'>
+                <div className='w-[80%]  grid lg:grid-cols-3	sm:gird-cols-2 md:grid-cols-2'>
                     {
                         courses.map(course => <Course key={course._id} course={course}></Course>)
                     }

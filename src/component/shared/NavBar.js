@@ -11,7 +11,7 @@ const NavBar = () => {
     }
     console.log(user)
     return (
-        <div className="navbar bg-base-100">
+        <div className="border-b-2 navbar bg-base-100">
             <div className="flex-1">
                 <Link to='/' className="text-xl normal-case btn btn-ghost">
                     <img className='w-[50px]' src={logo} alt="" />
@@ -69,7 +69,7 @@ const NavBar = () => {
                                         Profile
                                     </Link>
                                 </li>
-                                <li><a>Settings</a></li>
+                                <li><Link>Settings</Link></li>
                                 <li><button onClick={handleLogOut}>Logout</button></li>
                             </ul>
                         </div>

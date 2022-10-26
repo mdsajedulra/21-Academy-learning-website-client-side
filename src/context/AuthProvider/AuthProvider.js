@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 import app from '../../firebase/firebase.init';
 import { GoogleAuthProvider } from "firebase/auth";
 export const AuthContext = createContext();
@@ -8,6 +8,7 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
     // data load from api
     const [categories, setCategories] = useState([])
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch('http://localhost:5000/categories')
             .then(res => res.json())
@@ -20,23 +21,31 @@ const AuthProvider = ({ children }) => {
 
     // sign in with email password
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     // sign in with pop up
     const googleProvider = new GoogleAuthProvider();
     const createUserUsingGoogle = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
     // sign in with Github
     const githubProvider = new GithubAuthProvider();
     const createUserUsingGithub = () => {
+        setLoading(true)
         return signInWithPopup(auth, githubProvider);
     }
 
-
+    //login
+    const logIn = (email, password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
     // log out 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth);
     }
 
@@ -45,6 +54,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
+            setLoading(false)
         })
         return () => unSubscribe;
     }, [])
@@ -57,6 +67,8 @@ const AuthProvider = ({ children }) => {
         createUserUsingGoogle,
         createUserUsingGithub,
         logOut,
+        logIn,
+        loading,
         categories // api data
     };
     return (

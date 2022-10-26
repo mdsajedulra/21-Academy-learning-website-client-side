@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import demoPicture from '../../../assets/21academy.png'
+
 const Course = ({ course }) => {
-    const { title, instructor, price, category_id } = course;
+    const { title, instructor, price, category_id, thumbnail_url } = course;
     return (
         <div>
-            <div className="m-3 border shadow-xl card bg-base-100">
-                <figure><img className='w-[100px]' src={demoPicture} alt="Shoes" /></figure>
+            <div className="m-3 shadow-xl card bg-base-100">
+                <figure><img className='w-full' src={thumbnail_url} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
+                    <h2 className="text-base card-title">
                         {title}
                         <div className="badge badge-secondary">NEW</div>
                     </h2>

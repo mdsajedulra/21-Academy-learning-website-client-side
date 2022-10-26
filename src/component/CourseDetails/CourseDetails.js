@@ -1,11 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
     const details = useLoaderData()
-    console.log(details)
-    const { title, instructor, thumbnail_url, total_enrollment, rating, price, overview } = details;
-    console.log(total_enrollment)
+
+    const { title, instructor, thumbnail_url, category_id, total_enrollment, rating, price, overview } = details;
+
     return (
         <div className='flex gap-10 mt-10'>
             <div className='flex flex-col w-full gap-10'>
@@ -33,10 +33,10 @@ const CourseDetails = () => {
                 </div>
             </div>
             <div className='w-[45%] border rounded-md'>
-                <img className='w-full mb-5' src={instructor.img} alt="" />
+                <img className='w-full mb-5 rounded-md' src={thumbnail_url} alt="" />
                 <div className='m-5'>
                     <p className='font-bold text-right'>${price}</p>
-                    <button className="w-full rounded-md btn btn-primary">Get premium access →</button>
+                    <Link to={`/checkout/${category_id}`} className="w-full rounded-md btn btn-primary">Get premium access →</Link>
                     <div className='flex justify-between mt-2 font-bold'>
                         <p>Total Enroll: {total_enrollment}</p>
                         <p>Rating {rating.number}</p>
