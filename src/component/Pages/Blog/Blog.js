@@ -3,7 +3,7 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            <h1 className='mt-10 mb-3 text-3xl text-center'>FAQ</h1>
+            <h1 className='mt-10 mb-3 text-3xl text-center'>Some Question And Answer</h1>
             <div className='p-5 mb-3 border rounded-lg hover:border-blue-600'>
                 <h1 className='text-xl font-semibold'>1. What is cors?</h1>
                 <p>Ans:- CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.</p>
@@ -13,7 +13,8 @@ const Blog = () => {
                 </h1>
                 <p>Ans:- Google Firebase offers many features that pitch it as the go-to backend development tool for web and mobile apps. It reduces development workload and time. And it's a perfect prototyping tool. Firebase is simple, lightweight, friendly, and industrially recognized.</p>
                 <br />
-                <p>Auth0, MongoDB, Passport, Okta, and Firebase are the most popular alternatives and competitors to Firebase Authentication.</p>
+                <strong>Other Option:</strong>
+                <p>cards, retina scans, voice recognition, and fingerprints.</p>
 
             </div>
             <div className='p-5 mb-3 border rounded-lg hover:border-blue-600'>

@@ -5,6 +5,7 @@ import Home from "../../component/Home";
 import Blog from "../../component/Pages/Blog/Blog";
 import CheckOut from "../../component/Pages/Checkout/CheckOut";
 import Courses from "../../component/Pages/Courses/Courses";
+import Faq from "../../component/Pages/Faq/Faq";
 import Login from "../../component/Pages/Login/Login";
 import Practice from "../../component/Pages/Practice";
 import Register from "../../component/Pages/Register/Register";
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
             {
                 path: 'practice',
                 element: <Practice></Practice>
+            },
+            {
+                path: 'faq',
+                element: <Faq></Faq>
             }
         ]
     }

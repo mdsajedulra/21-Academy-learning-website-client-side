@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/21academy.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FaBars, FaUserGraduate } from "react-icons/fa";
-import toast, { Toaster } from 'react-hot-toast';
+
 
 const NavBar = () => {
-    const notify = () => toast('Toggle is on');
-    const off = () => toast('Toggle is off');
 
     const { user, logOut } = useContext(AuthContext);
     // logout
@@ -25,7 +23,7 @@ const NavBar = () => {
         <div>
 
             {
-                (change === true) ?
+                change ?
 
                     <div className="text-white bg-black border-b-2 navbar" >
 
@@ -102,7 +100,7 @@ const NavBar = () => {
                                         </div>
                                     </>
                             }
-                            <div className="block dropdown dropdown-end sm:block md:block lg:hidden">
+                            <div className="block text-black dropdown dropdown-end sm:block md:block lg:hidden">
                                 <label tabIndex={0} className="btn btn-ghost rounded-btn"><FaBars /></label>
                                 <ul tabIndex={0} className="p-2 mt-4 shadow menu dropdown-content bg-base-100 rounded-box w-52">
                                     <div className="flex-none">
@@ -121,7 +119,7 @@ const NavBar = () => {
                                             </li>
                                             <label className="cursor-pointer label">
 
-                                                <input type="checkbox" className="toggle" />
+                                                <input onClick={handleToggleBtn} type="checkbox" className="toggle" />
                                             </label>
                                         </ul>
                                     </div>
@@ -150,7 +148,7 @@ const NavBar = () => {
                                         <Link to='/courses'>Courses</Link>
                                     </li>
                                     <li>
-                                        <Link to='/'>FAQ</Link>
+                                        <Link to='/faq'>FAQ</Link>
                                     </li>
                                     <li>
                                         <Link to='/blog'>Blog</Link>
@@ -208,7 +206,7 @@ const NavBar = () => {
                             }
                             <div className="block dropdown dropdown-end sm:block md:block lg:hidden">
                                 <label tabIndex={0} className="btn btn-ghost rounded-btn"><FaBars /></label>
-                                <ul tabIndex={0} className="p-2 mt-4 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+                                <ul tabIndex={0} className="p-2 mt-4 text-black shadow menu dropdown-content bg-base-100 rounded-box w-52">
                                     <div className="flex-none">
                                         <ul className="p-0 menu menu-vertical">
                                             <li>
@@ -218,14 +216,13 @@ const NavBar = () => {
                                                 <Link to='/courses'>Courses</Link>
                                             </li>
                                             <li>
-                                                <Link to='/'>FAQ</Link>
+                                                <Link to='/faq'>FAQ</Link>
                                             </li>
                                             <li>
                                                 <Link to='/blog'>Blog</Link>
                                             </li>
                                             <label className="cursor-pointer label">
-
-                                                <input type="checkbox" className="toggle" />
+                                                <input onClick={handleToggleBtn} type="checkbox" className="toggle" />
                                             </label>
                                         </ul>
                                     </div>
